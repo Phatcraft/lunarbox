@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
-    <title>Đăng ký | Lunarbox</title>
+    <title>Đăng nhập | Lunarbox</title>
 
     <!-- CDNs -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
@@ -28,13 +28,13 @@
                         <a class="nav-link" aria-current="page" href="../">Trang chủ</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link active fw-semibold dropdown-toggle" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link  active fw-semibold dropdown-toggle" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Tài khoản
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="./login.php">Đăng nhập</a></li>
+                            <li><a class="dropdown-item fw-semibold" href="./login.php">Đăng nhập</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item fw-semibold" href="./signup.php">Đăng ký</a></li>
+                            <li><a class="dropdown-item" href="./signup.php">Đăng ký</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -49,26 +49,15 @@
             <!-- Message output -->
             <div id="message" class="bg-danger w-100 text-white text-center mb-3 rounded p-2 d-none" style="font-size: 14px;"></div>
 
-            <h2 class="mb-3">Đăng ký</h2>
+            <h2 class="mb-3">Đăng nhập</h2>
             <!-- Inputs -->
             <div class="form-floating my-2">
                 <input type="text" name="username" class="form-control" placeholder="">
                 <label>Tên tài khoản</label>
             </div>
-
-            <div class="form-floating my-2">
-                <input type="email" name="email" class="form-control" placeholder="">
-                <label>Email</label>
-            </div>
-
             <div class="form-floating my-2">
                 <input type="password" name="password" class="form-control password" placeholder="">
                 <label>Mật khẩu</label>
-            </div>
-
-            <div class="form-floating my-2">
-                <input type="password" name="confirm-password" class="form-control password" placeholder="">
-                <label>Xác nhận mật khẩu</label>
             </div>
 
             <div class="form-check mb-3">
@@ -77,8 +66,8 @@
             </div>
             <script src="../js/show-password.js"></script>
 
-            <button type="submit" class="btn btn-danger w-100" id="submit">Đăng ký</button>
-            <p class="text-center mt-3 mb-0">Đã có tài khoản? Đăng nhập tại <a href="./login.php" class="link-secondary">đây</a></p>
+            <button type="submit" class="btn btn-danger w-100" id="submit">Đăng nhập</button>
+            <p class="text-center mt-3 mb-0">Chưa có tài khoản? Đăng ký tại <a href="./signup.php" class="link-secondary">đây</a></p>
         </form>
     </main>
 
@@ -86,18 +75,17 @@
         if($_SERVER['REQUEST_METHOD'] == "POST"){
             // Get form datas
             $username = htmlspecialchars($_POST["username"]);
-            $email = htmlspecialchars($_POST["email"]);
             $password = htmlspecialchars($_POST["password"]);
-            $confirm = htmlspecialchars($_POST["confirm-password"]);
 
-            // Wrong password and confirm pass
-            if($password != $confirm){
+            // Testing mechanic
+            $user = ["username" => "Phatcraft", "password" => "phat0727"];
+            if($username == $user["username"] && $password == $user['password']){
                 ?>
-                    <script src="../js/wrong-password-confirm.js"></script>
+                    <script src="../js/login-success.js"></script>
                 <?php
             }else{
                 ?>
-                    <script src="../js/signup-success.js"></script>
+                    <script src="../js/wrong-username-password.js"></script>
                 <?php
             }
 
