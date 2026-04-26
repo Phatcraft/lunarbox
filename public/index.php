@@ -43,8 +43,8 @@
     </nav>
 
     <!-- Main page -->
-    <main class="d-flex justify-content-center">
-        <div class="about text-white my-5 text-center">
+    <main class="">
+        <div class="about text-white m-5">
             <h1>Chào mừng đến với Lunarbox</h1>
             <p>Tại đây, bạn có thể lưu trữ & quản lý dữ liệu an toàn và hiệu quả</p>
             <a href="" class="btn btn-danger m-2">Tham gia vào Lunarbox</a>
