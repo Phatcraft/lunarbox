@@ -42,12 +42,13 @@
         </div>
     </nav>
 
+    <!-- Message output -->
+    <div id="message" class="bg-danger w-100 text-white text-center mb-1 p-2 d-none"></div>
+
+
     <!-- Main page -->
     <main class="d-flex justify-content-center">
-        <form method="post" class="bg-white p-4 my-4 rounded" style="width: 330px">
-
-            <!-- Message output -->
-            <div id="message" class="bg-danger w-100 text-white text-center mb-3 rounded p-2 d-none" style="font-size: 14px;"></div>
+        <form method="post" class="bg-white p-4 my-2 rounded" style="width: 330px">
 
             <h2 class="mb-3">Đăng ký</h2>
             <!-- Inputs -->
