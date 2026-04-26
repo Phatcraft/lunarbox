@@ -15,7 +15,7 @@
     
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand fw-bold d-flex" href="./">
+            <a class="navbar-brand fw-bold d-flex" href="/">
                 <img src="./icon.png" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
                 <span class="ps-2">Lunarbox</span>
             </a>
@@ -25,7 +25,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active fw-semibold" aria-current="page" href="./">Trang chủ</a>
+                        <a class="nav-link active fw-semibold" aria-current="page" href="/">Trang chủ</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -34,7 +34,7 @@
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="">Đăng nhập</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="">Đăng ký</a></li>
+                            <li><a class="dropdown-item" href="./account/signup.php">Đăng ký</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -47,7 +47,7 @@
         <div class="about text-white m-5">
             <h1>Chào mừng đến với Lunarbox</h1>
             <p>Tại đây, bạn có thể lưu trữ & quản lý dữ liệu an toàn và hiệu quả</p>
-            <a href="" class="btn btn-danger m-2">Tham gia vào Lunarbox</a>
+            <a href="./account/signup.php" class="btn btn-danger m-2">Tham gia vào Lunarbox</a>
         </div>
     </main>
 
