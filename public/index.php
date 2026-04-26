@@ -32,9 +32,9 @@
                             Tài khoản
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="./account/login.php">Đăng nhập</a></li>
+                            <li><a class="dropdown-item" href="">Đăng nhập</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="./account/signup.php">Đăng ký</a></li>
+                            <li><a class="dropdown-item" href="">Đăng ký</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -47,10 +47,7 @@
         <div class="about text-white my-5 text-center">
             <h1>Chào mừng đến với Lunarbox</h1>
             <p>Tại đây, bạn có thể lưu trữ & quản lý dữ liệu an toàn và hiệu quả</p>
-            <div class="d-flex justify-content-center flex-wrap">
-                <a href="./account/signup.php" class="btn btn-danger m-2">Tham gia vào Lunarbox</a>
-                <a href="./account/login.php" class="btn btn-warning m-2">Đăng nhập vào Lunarbox</a>
-            </div>
+            <a href="" class="btn btn-danger m-2">Tham gia vào Lunarbox</a>
         </div>
     </main>
 
