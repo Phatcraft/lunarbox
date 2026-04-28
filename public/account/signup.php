@@ -1,3 +1,8 @@
+<?php
+    session_start();
+    require("../../config/database.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -97,9 +102,28 @@
                     <script src="../js/wrong-password-confirm.js"></script>
                 <?php
             }else{
-                ?>
-                    <script src="../js/signup-success.js"></script>
-                <?php
+                
+                $id = bin2hex(random_bytes(16));
+                $hash = password_hash($password, PASSWORD_BCRYPT);
+
+                $sql = $conn->prepare("INSERT INTO users(userID, username, email, password) VALUES (?,?,?,?)");    
+                $sql->bind_param("ssss", $id, $username, $email, $hash);
+
+                try{
+                    $sql->execute();
+                    $_SESSION["user"] = [
+                        "id" => $id,
+                        "token" => bin2hex(random_bytes(32))
+                    ];
+                    ?>
+                        <script src="../js/signup-success.js"></script>
+                    <?php
+                }catch(mysqli_sql_exception){
+                    ?>
+                        <script src="../js/username-email-exists.js"></script>
+                    <?php
+                }
+
             }
 
         }

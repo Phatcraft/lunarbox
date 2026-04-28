@@ -1,3 +1,7 @@
+<?php
+    session_start();
+    require("../../config/database.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -78,16 +82,32 @@
             $username = htmlspecialchars($_POST["username"]);
             $password = htmlspecialchars($_POST["password"]);
 
-            // Testing mechanic
-            $user = ["username" => "Phatcraft", "password" => "phat0727"];
-            if($username == $user["username"] && $password == $user['password']){
-                ?>
-                    <script src="../js/login-success.js"></script>
-                <?php
-            }else{
+            // Get userid, password
+            $id_sql = $conn->prepare("SELECT userID, password FROM users WHERE username=?");
+            $id_sql->bind_param("s", $username);
+            $id_sql->execute();
+            $id_result = $id_sql->get_result();
+            
+            if($id_result->num_rows <= 0){
                 ?>
                     <script src="../js/wrong-username-password.js"></script>
                 <?php
+            }else{
+                $user = $id_result->fetch_assoc();
+                
+                if(password_verify($password, $user["password"])){
+                    $_SESSION["user"] = [
+                        "id" => $user["userID"],
+                        "token" => bin2hex(random_bytes(32))
+                    ];
+                    ?>
+                        <script src="../js/login-success.js"></script>
+                    <?php
+                }else{
+                    ?>
+                        <script src="../js/wrong-username-password.js"></script>
+                    <?php
+                }
             }
 
         }

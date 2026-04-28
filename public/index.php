@@ -1,3 +1,7 @@
+<?php
+    session_start()
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,9 +36,15 @@
                             Tài khoản
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="./account/login.php">Đăng nhập</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="./account/signup.php">Đăng ký</a></li>
+                            <?php if(!isset($_SESSION["user"])):?>
+                                <li><a class="dropdown-item" href="./account/login.php">Đăng nhập</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="./account/signup.php">Đăng ký</a></li>
+                            <?php else:?>
+                                <li><a class="dropdown-item" href="">Tài khoản</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item text-danger" href="./account/logout.php">Đăng xuất</a></li>
+                            <?php endif;?>
                         </ul>
                     </li>
                 </ul>
@@ -43,16 +53,21 @@
     </nav>
 
     <!-- Main page -->
-    <main class="d-flex justify-content-center">
-        <div class="about text-white my-5 text-center">
-            <h1>Chào mừng đến với Lunarbox</h1>
-            <p>Tại đây, bạn có thể lưu trữ & quản lý dữ liệu an toàn và hiệu quả</p>
-            <div class="d-flex justify-content-center flex-wrap">
-                <a href="./account/signup.php" class="btn btn-danger m-2">Tham gia vào Lunarbox</a>
-                <a href="./account/login.php" class="btn btn-warning m-2">Đăng nhập vào Lunarbox</a>
+    <?php if(!isset($_SESSION["user"])):?>
+        <main class="d-flex justify-content-center">
+            <div class="about text-white my-5 text-center">
+                <h1>Chào mừng đến với Lunarbox</h1>
+                <p>Tại đây, bạn có thể lưu trữ & quản lý dữ liệu an toàn và hiệu quả</p>
+                <div class="d-flex justify-content-center flex-wrap">
+                    <a href="./account/signup.php" class="btn btn-danger m-2">Tham gia vào Lunarbox</a>
+                    <a href="./account/login.php" class="btn btn-warning m-2">Đăng nhập vào Lunarbox</a>
+                </div>
             </div>
-        </div>
-    </main>
-
+        </main>
+    <?php else:?>
+        <main>
+            <?php echo $_SESSION["user"]["id"]?>
+        </main>
+    <?php endif;?>
 </body>
 </html>
